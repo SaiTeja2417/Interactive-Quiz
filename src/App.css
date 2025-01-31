@@ -1,0 +1,181 @@
+/* General Styles */
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #1d2671, #c33764);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+  }
+  
+  /* Quiz App Container */
+  .app {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    animation: fadeIn 0.8s ease-in-out;
+  }
+  
+  /* Loading and Error Messages */
+  .loading,
+  .error {
+    font-size: 1.2rem;
+    color: white;
+  }
+  
+  /* Quiz Header */
+  .quiz-section h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #ffdd57;
+    text-transform: uppercase;
+  }
+  
+  /* Progress Bar (XP) */
+  .progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+  }
+  
+  .progress {
+    height: 100%;
+    background: linear-gradient(90deg, #ffdd57, #ff7e57);
+    transition: width 0.5s ease-in-out;
+  }
+  
+  /* Question Area */
+  .question-count {
+    font-size: 1rem;
+    color: #ffd700;
+    margin-bottom: 1rem;
+  }
+  
+  .question-text {
+    font-size: 1.3rem;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Answer Buttons */
+  .answer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .answer-button {
+    padding: 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .answer-button:hover {
+    background: rgba(255, 215, 0, 0.9);
+    color: black;
+    transform: scale(1.05);
+  }
+  
+  .answer-button.selected {
+    background: #ffdd57;
+    color: black;
+    transform: scale(1.08);
+  }
+  
+  /* Next Button */
+  .next-button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: #ff7e57;
+    color: white;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .next-button:hover {
+    background: #ff5733;
+  }
+  
+  /* Score Section */
+  .score-section {
+    font-size: 1.5rem;
+    color: white;
+  }
+  
+  .score {
+    color: #ffdd57;
+    font-weight: bold;
+  }
+  
+  .total {
+    color: #ff7e57;
+    font-weight: bold;
+  }
+  /* Score Section */
+.score-section {
+    font-size: 1.5rem;
+    color: #d9d6d6;
+  }
+  
+  .score-section .score {
+    color: #4caf50;
+    font-weight: bold;
+  }
+  
+  .score-section .total {
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  
+  /* Restart Button */
+  .restart-button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .restart-button:hover {
+    background: #0056b3;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
