@@ -1,181 +1,247 @@
 /* General Styles */
 body {
-    font-family: "Poppins", sans-serif;
-    background: linear-gradient(135deg, #1d2671, #c33764);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: white;
-  }
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(135deg, #1d2671, #c33764);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.app {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  width: 700px;
   
-  /* Quiz App Container */
-  .app {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(12px);
-    padding: 2rem;
-    border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    width: 100%;
-    max-width: 600px;
-    text-align: center;
-    animation: fadeIn 0.8s ease-in-out;
-  }
+  text-align: center;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Loading and Error Messages */
+.loading,
+.error {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Quiz Section */
+.quiz-section h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, #4caf50, #8bc34a);
+  transition: width 0.3s ease;
+}
+
+.question-count {
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.question-text {
+  font-size: 1.25rem;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.answer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.answer-button {
+  padding: 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
   
-  /* Loading and Error Messages */
-  .loading,
-  .error {
-    font-size: 1.2rem;
-    color: white;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.answer-button:hover {
+  background: rgba(255, 215, 0, 0.9);
+  color: black;
+  transform: scale(1.05);
+}
+.answer-button-selected{
+  background: #ffdd57;
+  color: black;
+  transform: scale(1.08);
+}
+
+.answer-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.answer-button.correct {
+  background-color: #4caf50;
+  animation: correctAnimation 0.5s ease;
+}
+
+.answer-button.incorrect {
+  background-color: #ff4444;
+  animation: incorrectAnimation 0.5s ease;
+}
+
+/* Animations */
+@keyframes correctAnimation {
+  0% {
+    transform: scale(1);
   }
-  
-  /* Quiz Header */
-  .quiz-section h1 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    color: #ffdd57;
-    text-transform: uppercase;
+  50% {
+    transform: scale(1.1);
   }
-  
-  /* Progress Bar (XP) */
-  .progress-bar {
-    width: 100%;
-    height: 10px;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
-    margin-bottom: 1.5rem;
-    overflow: hidden;
+  100% {
+    transform: scale(1);
   }
-  
-  .progress {
-    height: 100%;
-    background: linear-gradient(90deg, #ffdd57, #ff7e57);
-    transition: width 0.5s ease-in-out;
+}
+
+@keyframes incorrectAnimation {
+  0% {
+    transform: translateX(0);
   }
-  
-  /* Question Area */
-  .question-count {
-    font-size: 1rem;
-    color: #ffd700;
-    margin-bottom: 1rem;
+  25% {
+    transform: translateX(-10px);
   }
-  
-  .question-text {
-    font-size: 1.3rem;
-    color: white;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
+  50% {
+    transform: translateX(10px);
   }
-  
-  /* Answer Buttons */
-  .answer-section {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  75% {
+    transform: translateX(-10px);
   }
-  
-  .answer-button {
-    padding: 1rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    font-weight: bold;
-    text-transform: uppercase;
+  100% {
+    transform: translateX(0);
   }
-  
-  .answer-button:hover {
-    background: rgba(255, 215, 0, 0.9);
-    color: black;
-    transform: scale(1.05);
-  }
-  
-  .answer-button.selected {
-    background: #ffdd57;
-    color: black;
-    transform: scale(1.08);
-  }
-  
-  /* Next Button */
-  .next-button {
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 8px;
-    background: #ff7e57;
-    color: white;
-    cursor: pointer;
-    margin-top: 1.5rem;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  .next-button:hover {
-    background: #ff5733;
-  }
-  
-  /* Score Section */
-  .score-section {
-    font-size: 1.5rem;
-    color: white;
-  }
-  
-  .score {
-    color: #ffdd57;
-    font-weight: bold;
-  }
-  
-  .total {
-    color: #ff7e57;
-    font-weight: bold;
-  }
-  /* Score Section */
+}
+
+/* Feedback */
+.feedback {
+  margin-top: 1rem;
+}
+
+.correct-feedback {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.incorrect-feedback {
+  color: #ff4444;
+  font-weight: bold;
+}
+h2,
+p{
+  color: white;
+}
+
+/* Next Button */
+.next-button {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #28a745;
+  color: white;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.next-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.next-button:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+/* Score Section */
 .score-section {
-    font-size: 1.5rem;
-    color: #d9d6d6;
-  }
-  
-  .score-section .score {
-    color: #4caf50;
-    font-weight: bold;
-  }
-  
-  .score-section .total {
-    color: #007bff;
-    font-weight: bold;
-  }
-  
-  
-  /* Restart Button */
-  .restart-button {
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 8px;
-    background: #007bff;
-    color: white;
-    cursor: pointer;
-    margin-top: 1.5rem;
-    transition: background 0.3s ease-in-out;
-  }
-  
-  .restart-button:hover {
-    background: #0056b3;
-  }
-  
-  /* Animations */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.score-section .score {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.score-section .total {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.restart-button {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.restart-button:hover {
+  background-color: #0056b3;
+}
+
+/* Badges Section */
+.badges-section {
+  margin-top: 1.5rem;
+}
+
+.badge {
+  display: inline-block;
+  background-color: #ffcc00;
+  color: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  margin: 0.5rem;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Streak Section */
+.streak-section {
+  font-size: 1.1rem;
+  color: #ff4444;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+/* Timer Section */
+.timer-section {
+  font-size: 1.1rem;
+  color: #f4f6f8;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
